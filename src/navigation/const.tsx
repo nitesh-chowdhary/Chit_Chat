@@ -1,6 +1,7 @@
 import Login from '../screens/auth/login';
 import Splash from '../screens/splash';
-import { Screen, ScreenName, Screens } from './type';
+import { ScreenName } from '../types/navigation';
+import { Screen, Screens } from './type';
 
 export const splashScreen: Screen = {
   name: ScreenName.Splash,

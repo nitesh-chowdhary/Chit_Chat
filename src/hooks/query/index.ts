@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import { QueryProps, QueryResponse, QueryState, RequestConfig } from './type';
-import { logger } from '../../utils/logger';
-import { storage } from '../../utils/storage';
-import { baseURL } from '../../config/api';
+import { URL } from '../../config/api';
+import { logger, storage } from '../../utils';
 
 const axiosInstance = axios.create({
-  baseURL,
+  baseURL: URL.baseURL,
 });
 
 const initialState: QueryState = {

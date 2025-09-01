@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { FlatList as RNFlatList, ListRenderItem } from 'react-native';
 
 import { FlatListProps } from './type';
