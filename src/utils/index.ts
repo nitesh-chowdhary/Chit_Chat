@@ -10,4 +10,18 @@ import { Timer } from './timers';
 import { safeAsync } from './safeAsync';
 import { storage } from './storage';
 
-export { Device, Helper, Regex, Scale, Timer, logger, storage, safeAsync };
+export {
+  // namespace
+  Device,
+  Helper,
+  Regex,
+  Scale,
+  Timer,
+
+  // ES6
+  logger,
+  storage,
+
+  // function
+  safeAsync,
+};
