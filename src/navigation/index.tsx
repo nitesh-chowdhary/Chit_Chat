@@ -13,7 +13,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={splashScreen.name}>
-        {[splashScreen, ...screens].map(item => (
+        {screens.map(item => (
           <Stack.Screen
             key={item?.name}
             name={item?.name}

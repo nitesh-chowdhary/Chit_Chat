@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const radius = StyleSheet.create({
   roundedNone: { borderRadius: 0 },
+  roundedXs: { borderRadius: 2 },
   roundedSm: { borderRadius: 4 },
   rounded: { borderRadius: 8 },
   roundedMd: { borderRadius: 12 },

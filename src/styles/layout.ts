@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const layout = StyleSheet.create({
   flex: { display: 'flex' },
+
   flex1: { flex: 1 },
   flexRow: { flexDirection: 'row' },
   flexCol: { flexDirection: 'column' },

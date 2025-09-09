@@ -1,7 +1,7 @@
 import { PixelRatio } from 'react-native';
 import { Device } from './device';
 
-const { width, height } = Device?.screen;
+const { width, height } = Device;
 const [shortDimension, longDimension] =
   width < height ? [width, height] : [height, width];
 

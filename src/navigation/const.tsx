@@ -9,10 +9,11 @@ export const splashScreen: Screen = {
 };
 
 export const authScreens: Screens = [
+  splashScreen,
   {
     name: ScreenName.Login,
     component: Login,
   },
 ];
 
-export const appScreens: Screens = [];
+export const appScreens: Screens = [splashScreen];
