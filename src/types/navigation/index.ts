@@ -1,3 +1,3 @@
-import { ScreenName } from './screen';
+import { ScreenName, Screen, Screens } from './screen';
 
-export { ScreenName };
+export { ScreenName, type Screen, type Screens };

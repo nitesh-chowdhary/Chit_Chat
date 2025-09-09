@@ -1,6 +1,13 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
-import { QueryProps, QueryResponse, QueryState, RequestConfig } from './type';
+
+import type {
+  QueryProps,
+  QueryResponse,
+  QueryState,
+  RequestConfig,
+} from './type';
+
 import { URL } from '../../config/api';
 import { logger, storage } from '../../utils';
 

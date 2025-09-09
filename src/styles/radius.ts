@@ -1,15 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 const radius = StyleSheet.create({
-  roundedNone: { borderRadius: 0 },
-  roundedXs: { borderRadius: 2 },
-  roundedSm: { borderRadius: 4 },
-  rounded: { borderRadius: 8 },
-  roundedMd: { borderRadius: 12 },
-  roundedLg: { borderRadius: 16 },
-  roundedXl: { borderRadius: 24 },
-  rounded2xl: { borderRadius: 32 },
-  roundedFull: { borderRadius: 9999 },
+  none: { borderRadius: 0 },
+  xs: { borderRadius: 2 },
+  sm: { borderRadius: 4 },
+  rg: { borderRadius: 8 },
+  md: { borderRadius: 12 },
+  lg: { borderRadius: 16 },
+  xl: { borderRadius: 24 },
+  '2xl': { borderRadius: 32 },
+  full: { borderRadius: 9999 },
 });
 
 export default radius;

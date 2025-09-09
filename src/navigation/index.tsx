@@ -2,7 +2,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { appScreens, authScreens, splashScreen } from './const';
-import { Screens } from './type';
+
+import type { Screens } from '../types/navigation';
 
 const Stack = createNativeStackNavigator();
 
