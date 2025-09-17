@@ -6,7 +6,7 @@ import { Regex } from './regex';
 import { Timer } from './timers';
 import { logger } from './logger';
 import { safeAsync } from './safeAsync';
-// import { storage } from './storage';
+import { storage } from './storage';
 
 export {
   // namespace
@@ -18,7 +18,7 @@ export {
 
   // ES6
   logger,
-  // storage,
+  storage,
 
   // function
   safeAsync,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList as RNFlatList, ListRenderItem } from 'react-native';
 
-import { FlatListProps } from './type';
+import type { FlatListProps } from './type';
 
 const Flatlist = <T,>({
   loading = false,

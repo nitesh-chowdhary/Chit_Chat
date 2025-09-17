@@ -1,4 +1,4 @@
-export namespace URL {
+export namespace API {
   export const baseURL = '';
 
   export const endpoint = {

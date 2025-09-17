@@ -8,7 +8,7 @@ import {
   textVariantStyles,
   variantStyles,
 } from './styles';
-import { ButtonProps } from './type';
+import type { ButtonProps } from './type';
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',

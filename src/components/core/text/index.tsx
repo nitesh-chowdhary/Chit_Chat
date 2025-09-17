@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text as RNText, StyleSheet } from 'react-native';
-import { TextProps } from './type';
+import type { TextProps } from './type';
 
 const Text: React.FC<TextProps> = ({
   variant = 'body',

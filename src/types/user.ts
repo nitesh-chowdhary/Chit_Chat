@@ -1,0 +1,10 @@
+namespace UserTypes {
+  export interface User {
+    id: string;
+    name: string;
+    email: string;
+    token: string;
+  }
+}
+
+export default UserTypes;

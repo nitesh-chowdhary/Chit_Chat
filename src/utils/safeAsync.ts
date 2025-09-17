@@ -1,11 +1,11 @@
 export async function safeAsync<T>(
   promise: Promise<T>,
-): Promise<[T | null, Error | null]> {
+): Promise<{ data: T | null; error: Error | null }> {
   try {
     const data = await promise;
-    return [data, null];
+    return { data, error: null };
   } catch (err) {
     console.log('🚀 ~ safeAsync ~ err:', err);
-    return [null, err as Error];
+    return { data: null, error: err as Error };
   }
 }

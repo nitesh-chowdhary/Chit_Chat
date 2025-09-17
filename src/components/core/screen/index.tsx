@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { KeyboardAvoidingView, StatusBar, Platform, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ScreenProps } from './type';
+import type { ScreenProps } from './type';
 import ScrollView from '../scrollview';
 import { layout } from '../../../styles';
 

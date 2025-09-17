@@ -1,4 +1,4 @@
-import { URL } from './endpoint';
+import { API } from './endpoint';
 import { CacheKey } from './cacheKey';
 
-export { URL, CacheKey };
+export { API, CacheKey };
