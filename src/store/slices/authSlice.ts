@@ -20,7 +20,7 @@ const authSlice = createSlice({
       state.loading = false;
     },
     loginFailure(state, action: PayloadAction<Error>) {
-      state.error = action.payload;
+      state.error = action.payload.message;
       state.loading = false;
     },
 
@@ -32,7 +32,7 @@ const authSlice = createSlice({
       state.loading = false;
     },
     logoutFailure(state, action: PayloadAction<Error>) {
-      state.error = action.payload;
+      state.error = action.payload.message;
       state.loading = false;
     },
   },

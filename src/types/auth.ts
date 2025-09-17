@@ -4,7 +4,7 @@ namespace AuthTypes {
   export interface AuthState {
     user: UserTypes.User | null;
     loading: boolean;
-    error: Error | null;
+    error: string | null;
   }
   export interface Login {
     email: string;
