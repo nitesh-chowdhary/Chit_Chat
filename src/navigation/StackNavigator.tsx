@@ -7,7 +7,7 @@ import type { Screens } from '../types/navigation';
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = () => {
+const StackNavigator = () => {
   const isAuthUser = false;
   const screens: Screens = isAuthUser ? appScreens : authScreens;
 
@@ -29,4 +29,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default StackNavigator;

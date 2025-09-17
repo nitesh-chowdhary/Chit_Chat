@@ -1,10 +1,10 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Navigation from './src/navigation';
+import StackNavigator from './src/navigation/StackNavigator';
 
 function App() {
   return (
     <SafeAreaProvider>
-      <Navigation />
+      <StackNavigator />
     </SafeAreaProvider>
   );
 }

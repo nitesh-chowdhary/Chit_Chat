@@ -8,7 +8,6 @@ const radius = StyleSheet.create({
   md: { borderRadius: 12 },
   lg: { borderRadius: 16 },
   xl: { borderRadius: 24 },
-  '2xl': { borderRadius: 32 },
   full: { borderRadius: 9999 },
 });
 

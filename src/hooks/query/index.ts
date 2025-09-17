@@ -25,7 +25,7 @@ const useQuery = (config: QueryProps): QueryResponse => {
   const {
     method = 'GET',
     endpoint,
-    key = `${method}_${endpoint}`,
+    key,
     dependencies = [],
     enabled = true,
     ...rest
@@ -63,7 +63,10 @@ const useQuery = (config: QueryProps): QueryResponse => {
     const controller = new AbortController();
     abortControllerRef.current = controller;
 
-    if (finalConfig?.method === 'GET') {
+    const isCached =
+      (finalConfig?.method === 'GET' || 'POST') && finalConfig?.key;
+
+    if (isCached) {
       const cacheData = storage.get(finalConfig?.key);
       setQueryState(prev => ({
         ...prev,
@@ -80,7 +83,7 @@ const useQuery = (config: QueryProps): QueryResponse => {
         signal: controller.signal,
       });
 
-      if (finalConfig?.method === 'GET') {
+      if (isCached) {
         storage.set(finalConfig?.key, response?.data);
       }
 
