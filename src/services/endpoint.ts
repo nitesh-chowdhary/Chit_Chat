@@ -1,6 +1,5 @@
-export namespace API {
+namespace API {
   export const baseURL = '';
-
   export const endpoint = {
     auth: {
       login: '',
@@ -8,4 +7,10 @@ export namespace API {
       otp: '',
     },
   };
+
+  export const cacheKey = {
+    user: 'user',
+  };
 }
+
+export default API;

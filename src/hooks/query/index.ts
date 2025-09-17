@@ -8,8 +8,8 @@ import type {
   RequestConfig,
 } from './type';
 
-import { API } from '../../config/api';
 import { logger, storage } from '../../utils';
+import { API } from '../../services';
 
 const axiosInstance = axios.create({
   baseURL: API.baseURL,

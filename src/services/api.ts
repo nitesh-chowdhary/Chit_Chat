@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { API } from '../config/api';
 import { logger, storage } from '../utils';
+import API from './endpoint';
 
 const getToken = () => storage.get('auth_token');
 
