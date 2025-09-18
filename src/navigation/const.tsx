@@ -1,14 +1,18 @@
 import Login from '../screens/auth/login';
 import Splash from '../screens/splash';
+import type { ScreenTypes } from '../types';
 
-import { ScreenName, type Screen, type Screens } from '../types/navigation';
+export enum ScreenName {
+  Splash = 'Splash',
+  Login = 'Login',
+}
 
-export const splashScreen: Screen = {
+export const splashScreen: ScreenTypes.Screen = {
   name: ScreenName.Splash,
   component: Splash,
 };
 
-export const authScreens: Screens = [
+export const authScreens: ScreenTypes.Screens = [
   splashScreen,
   {
     name: ScreenName.Login,
@@ -16,4 +20,4 @@ export const authScreens: Screens = [
   },
 ];
 
-export const appScreens: Screens = [splashScreen];
+export const appScreens: ScreenTypes.Screens = [splashScreen];

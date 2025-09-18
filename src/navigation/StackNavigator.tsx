@@ -3,13 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { appScreens, authScreens, splashScreen } from './const';
 
-import type { Screens } from '../types/navigation';
-
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   const isAuthUser = false;
-  const screens: Screens = isAuthUser ? appScreens : authScreens;
+  const screens = isAuthUser ? appScreens : authScreens;
 
   return (
     <NavigationContainer>
