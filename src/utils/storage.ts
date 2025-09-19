@@ -3,14 +3,14 @@
 // export const mmkv = new MMKV();
 
 export const storage = {
-  //   get: (key: string) => {
-  //     const value = mmkv.getString(key);
-  //     return value ? JSON.parse(value) : null;
-  //   },
-  //   set: (key: string, value: any) => {
-  //     storage.set(key, JSON.stringify(value));
-  //   },
-  //   remove: (key: string) => {
-  //     mmkv.delete(key);
-  //   },
+  get: (key: string) => {
+    // const value = mmkv.getString(key);
+    // return value ? JSON.parse(value) : null;
+  },
+  set: (key: string, value: any) => {
+    // mmkv.set(key, JSON.stringify(value));
+  },
+  remove: (key: string) => {
+    // mmkv.delete(key);
+  },
 };
