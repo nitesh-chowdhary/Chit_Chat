@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { logger, storage } from '../utils';
-import API from './endpoint';
 
 const getToken = () => storage.get('auth_token');
 
@@ -8,6 +7,21 @@ const apiClient = axios.create({
   baseURL: API.baseURL,
   timeout: 10000,
 });
+
+namespace API {
+  export const baseURL = '';
+  export const endpoint = {
+    auth: {
+      login: '',
+      register: '',
+      otp: '',
+    },
+  };
+
+  export const cacheKey = {
+    user: 'user',
+  };
+}
 
 // ✅ Request interceptor
 apiClient.interceptors.request.use(
@@ -51,4 +65,4 @@ apiClient.interceptors.response.use(
   },
 );
 
-export default apiClient;
+export { apiClient, API };

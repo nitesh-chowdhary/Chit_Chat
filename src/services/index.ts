@@ -1,5 +1,4 @@
-import apiClient from './api';
 import { auth } from './auth';
-import API from './endpoint';
+import { apiClient, API } from './api';
 
 export { apiClient, auth, API };

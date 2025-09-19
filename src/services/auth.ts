@@ -1,6 +1,6 @@
 import type { AuthTypes } from '../types';
 import { safeAsync } from '../utils';
-import apiClient from './api';
+import { apiClient } from './api';
 
 export namespace auth {
   export async function loginApi(payload: AuthTypes.Login) {
