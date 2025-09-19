@@ -1,6 +1,6 @@
 import { TextProps as RNTextProps, TextStyle } from 'react-native';
 
-export type Variant = 'body' | 'caption';
+export type Variant = 'body' | 'caption' | 'title' | 'message';
 
 export interface TextProps extends RNTextProps {
   variant?: Variant;

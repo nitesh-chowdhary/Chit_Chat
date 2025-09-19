@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { logger } from '../utils';
 import { layout, space } from '../styles';
 import { Button, Text } from './core';
@@ -26,8 +26,8 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <View style={[layout.flex1, layout.center, space.p4]}>
-          <Text style={styles.title}>Something went wrong</Text>
-          <Text style={styles.message}>{this.state.error?.message}</Text>
+          <Text variant="title">Something went wrong</Text>
+          <Text variant="message">{this.state.error?.message}</Text>
           <Button onPress={this.resetError}>Try Again</Button>
         </View>
       );
@@ -35,8 +35,3 @@ export class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
-
-const styles = StyleSheet.create({
-  title: { fontSize: 18, fontWeight: 'bold', marginBottom: 8 },
-  message: { color: 'red', marginBottom: 16, textAlign: 'center' },
-});

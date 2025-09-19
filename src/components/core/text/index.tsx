@@ -38,6 +38,8 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     color: '#666',
   },
+  title: { fontSize: 18, fontWeight: 'bold', marginBottom: 8 },
+  message: { color: 'red', marginBottom: 16, textAlign: 'center' },
 });
 
 export default Text;
