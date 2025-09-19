@@ -1,7 +1,6 @@
-import { View, Text } from 'react-native';
+import { Screen, Text } from '@/components/core';
+import { Device } from '@/utils';
 import React from 'react';
-import { Screen } from '../../components/core';
-import { Device } from '../../utils';
 
 const Splash = () => {
   return (

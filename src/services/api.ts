@@ -1,8 +1,6 @@
+import env from '@/config/env';
+import { APP_CONSTANTS, HTTP_STATUS, logger, storage } from '@/utils';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { env } from '../config/env';
-import { logger } from '../utils/logger';
-import { storage } from '../utils';
-import { APP_CONSTANTS, HTTP_STATUS } from '../utils/constants';
 
 interface ApiResponse<T = any> {
   data: T;
@@ -84,7 +82,8 @@ apiClient.interceptors.response.use(
   },
   error => {
     const apiError: ApiError = {
-      message: error.response?.data?.message || error.message || 'An error occurred',
+      message:
+        error.response?.data?.message || error.message || 'An error occurred',
       statusCode: error.response?.status || HTTP_STATUS.INTERNAL_SERVER_ERROR,
       details: error.response?.data,
     };

@@ -1,5 +1,5 @@
-import type { AuthTypes } from '../types';
-import { safeAsync } from '../utils';
+import type { AuthTypes } from '@/types';
+import { safeAsync } from '@/utils';
 import { apiClient } from './api';
 
 export namespace auth {
