@@ -20,7 +20,7 @@ function log(level: LogLevel, ...args: any[]) {
       console.error(prefix, ...args);
       break;
     default:
-      console.log(prefix, ...args);
+      console.info(prefix, ...args);
   }
 }
 

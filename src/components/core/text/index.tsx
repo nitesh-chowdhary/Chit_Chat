@@ -40,6 +40,12 @@ const styles = StyleSheet.create({
   },
   title: { fontSize: 18, fontWeight: 'bold', marginBottom: 8 },
   message: { color: 'red', marginBottom: 16, textAlign: 'center' },
+  errorText: {
+    fontSize: 12,
+    color: '#ff0000',
+    marginBottom: 24,
+    textAlign: 'center',
+  },
 });
 
 export default Text;

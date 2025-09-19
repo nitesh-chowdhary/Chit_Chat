@@ -1,12 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useSelector } from 'react-redux';
 
 import { appScreens, authScreens, splashScreen } from './const';
+import type { RootState } from '../store';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-  const isAuthUser = false;
+  const user = useSelector((state: RootState) => state.auth.user);
+  const isAuthUser = !!user;
   const screens = isAuthUser ? appScreens : authScreens;
 
   return (

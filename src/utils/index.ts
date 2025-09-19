@@ -7,6 +7,9 @@ import { Timer } from './timers';
 import { logger } from './logger';
 import { safeAsync } from './safeAsync';
 import { storage } from './storage';
+import { performanceMonitor, withPerformance } from './performance';
+
+export * from './constants';
 
 export {
   // namespace
@@ -19,7 +22,9 @@ export {
   // ES6
   logger,
   storage,
+  performanceMonitor,
 
   // function
   safeAsync,
+  withPerformance,
 };

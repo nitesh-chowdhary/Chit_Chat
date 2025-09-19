@@ -1,25 +1,48 @@
-import axios from 'axios';
-import { logger, storage } from '../utils';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { env } from '../config/env';
+import { logger } from '../utils/logger';
+import { storage } from '../utils';
+import { APP_CONSTANTS, HTTP_STATUS } from '../utils/constants';
+
+interface ApiResponse<T = any> {
+  data: T;
+  message?: string;
+  success: boolean;
+  statusCode: number;
+}
+
+interface ApiError {
+  message: string;
+  statusCode: number;
+  details?: any;
+}
 
 const getToken = () => storage.get('auth_token');
 
 const apiClient = axios.create({
-  baseURL: API.baseURL,
-  timeout: 10000,
+  baseURL: env.API_BASE_URL,
+  timeout: APP_CONSTANTS.API_TIMEOUT,
 });
 
 namespace API {
-  export const baseURL = '';
+  export const baseURL = env.API_BASE_URL;
   export const endpoint = {
     auth: {
-      login: '',
-      register: '',
-      otp: '',
+      login: '/auth/login',
+      register: '/auth/register',
+      otp: '/auth/verify-otp',
+      logout: '/auth/logout',
+      refresh: '/auth/refresh',
+    },
+    user: {
+      profile: '/user/profile',
+      updateProfile: '/user/profile',
     },
   };
 
   export const cacheKey = {
     user: 'user',
+    token: 'auth_token',
   };
 }
 
@@ -52,16 +75,28 @@ apiClient.interceptors.request.use(
 
 // ✅ Response interceptor
 apiClient.interceptors.response.use(
-  response => {
-    logger.info(`✅ Response from ${response.config.url}`, response.data);
+  (response: AxiosResponse<ApiResponse>) => {
+    logger.debug('API Response:', {
+      status: response.status,
+      data: response.data,
+    });
     return response;
   },
   error => {
-    if (error.response?.status === 401) {
-      logger.warn('Unauthorized - maybe logout user or refresh token');
+    const apiError: ApiError = {
+      message: error.response?.data?.message || error.message || 'An error occurred',
+      statusCode: error.response?.status || HTTP_STATUS.INTERNAL_SERVER_ERROR,
+      details: error.response?.data,
+    };
+
+    logger.error('API Response Error:', apiError);
+
+    if (apiError.statusCode === HTTP_STATUS.UNAUTHORIZED) {
+      logger.warn('Unauthorized access, redirecting to login');
+      // Handle logout logic here
     }
-    logger.error('Response error', error);
-    return Promise.reject(error);
+
+    return Promise.reject(apiError);
   },
 );
 

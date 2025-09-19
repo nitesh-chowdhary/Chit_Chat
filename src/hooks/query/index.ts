@@ -21,7 +21,7 @@ const initialState: QueryState = {
   error: null,
 };
 
-const useQuery = (config: QueryProps): QueryResponse => {
+export const useQuery = (config: QueryProps): QueryResponse => {
   const {
     method = 'GET',
     endpoint,
@@ -137,5 +137,3 @@ const useQuery = (config: QueryProps): QueryResponse => {
     reset,
   };
 };
-
-export default useQuery;

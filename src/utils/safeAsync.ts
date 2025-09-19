@@ -1,3 +1,5 @@
+import { logger } from './logger';
+
 export async function safeAsync<T>(
   promise: Promise<T>,
 ): Promise<{ data: T | null; error: Error | null }> {
@@ -5,7 +7,7 @@ export async function safeAsync<T>(
     const data = await promise;
     return { data, error: null };
   } catch (err) {
-    console.log('🚀 ~ safeAsync ~ err:', err);
+    logger.error('🚀 ~ safeAsync ~ err:', err);
     return { data: null, error: err as Error };
   }
 }
