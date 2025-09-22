@@ -11,8 +11,15 @@ import { auth } from '../../services';
 
 function* handleLogin(action: ReturnType<typeof loginRequest>): any {
   try {
-    const user = yield call(auth.loginApi, action.payload);
-    yield put(loginSuccess(user));
+    // const user = yield call(auth.loginApi, action.payload);
+    yield put(
+      loginSuccess({
+        id: '1',
+        name: 'Nitesh Chowdhary',
+        email: 'nitesh@gmail.com',
+        token: 'nitz',
+      }),
+    );
   } catch (e: any) {
     yield put(loginFailure(e));
   }

@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { layout, space } from '@/styles';
-import { useAppNavigation, useTheme } from '@/hooks';
+import { useAppDispatch, useAppNavigation, useTheme } from '@/hooks';
 import { Button, Screen, Text, TextInput } from '@/components/core';
+import { useForm } from '@/hooks/form';
+import { loginRequest } from '@/store/slices/authSlice';
+
+const initailValues = {
+  phone: '',
+  password: '',
+};
 
 const Login = () => {
   const theme = useTheme();
-  const navigation = useAppNavigation();
+  const dispatch = useAppDispatch();
 
-  const [userInfo, setUserInfo] = useState({
-    phone: '',
-    password: '',
+  const { values, handleSubmit, handleChange } = useForm({
+    initialValues: initailValues,
   });
 
   const handleLogin = () => {
-    console.log('Login with:', userInfo);
+    console.log('Login with:', values);
+    dispatch(loginRequest(initailValues));
   };
 
   return (
@@ -33,21 +39,19 @@ const Login = () => {
           placeholder="Phone Number"
           placeholderTextColor={theme.gray500}
           keyboardType="phone-pad"
-          value={userInfo.phone}
+          value={values.phone}
+          onChangeText={e => handleChange('phone', e)}
         />
         <TextInput
           placeholder="Password"
           placeholderTextColor={theme.gray500}
           secureTextEntry
-          value={userInfo.password}
+          value={values.password}
+          onChangeText={e => handleChange('password', e)}
         />
 
         <Button onPress={handleLogin}>Login</Button>
-        <Button
-          size="sm"
-          variant="ghost"
-          onPress={() => navigation.replace('Register')}
-        >
+        <Button size="sm" variant="ghost" onPress={handleSubmit}>
           Don’t have an account? Register
         </Button>
       </View>

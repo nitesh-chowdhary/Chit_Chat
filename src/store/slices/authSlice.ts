@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { AuthTypes, UserTypes } from '../../types';
+import { navigate, navigationRef } from '@/navigation/navigationService';
 
 const initialState: AuthTypes.AuthState = {
   user: null,
@@ -18,6 +19,7 @@ const authSlice = createSlice({
     loginSuccess(state, action: PayloadAction<UserTypes.User>) {
       state.user = action.payload;
       state.loading = false;
+      navigate('Home');
     },
     loginFailure(state, action: PayloadAction<Error>) {
       state.error = action.payload.message;

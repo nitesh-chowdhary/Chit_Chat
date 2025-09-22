@@ -1,5 +1,5 @@
 import { all, fork } from 'redux-saga/effects';
-import authSaga from './sagas/authSaga.ts';
+import authSaga from './sagas/authSaga';
 
 export default function* rootSaga() {
   yield all([

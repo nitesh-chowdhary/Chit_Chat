@@ -1,3 +1,4 @@
+import Home from '@/screens/app/home';
 import Login from '@/screens/auth/login';
 import Register from '@/screens/auth/register';
 import Splash from '@/screens/splash';
@@ -9,6 +10,9 @@ export enum ScreenName {
   // auth screens
   Login = 'Login',
   Register = 'Register',
+
+  // app screens
+  Home = 'Home',
 }
 
 export const splashScreen: ScreenTypes.Screen = {
@@ -28,4 +32,10 @@ export const authScreens: ScreenTypes.Screens = [
   },
 ];
 
-export const appScreens: ScreenTypes.Screens = [splashScreen];
+export const appScreens: ScreenTypes.Screens = [
+  splashScreen,
+  {
+    name: ScreenName.Home,
+    component: Home,
+  },
+];

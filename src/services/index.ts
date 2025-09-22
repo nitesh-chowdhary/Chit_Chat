@@ -1,4 +1,2 @@
-import { auth } from './auth';
-import { apiClient, API } from './api';
-
-export { apiClient, auth, API };
+export { auth } from './auth';
+export { apiClient, API } from './api';

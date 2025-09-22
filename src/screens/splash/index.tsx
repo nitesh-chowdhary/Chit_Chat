@@ -1,18 +1,27 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 
-import { useAppNavigation, useTheme } from '@/hooks';
+import {
+  useAppDispatch,
+  useAppNavigation,
+  useAppSelector,
+  useTheme,
+} from '@/hooks';
 import { layout } from '@/styles';
 import { Device } from '@/utils';
 import { Text } from '@/components/core';
+import { loginRequest } from '@/store/slices/authSlice';
 
 const SplashScreen = () => {
   const theme = useTheme();
+  const dispatch = useAppDispatch();
   const navigation = useAppNavigation();
+  const user = useAppSelector(store => store.auth.user);
 
   const fadeAnim = new Animated.Value(0);
 
   useEffect(() => {
+    dispatch(loginRequest({ phone: '8653255256', password: 'nitesh' }));
     Animated.sequence([
       Animated.timing(fadeAnim, {
         toValue: 1,
@@ -26,7 +35,7 @@ const SplashScreen = () => {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      navigation.navigate('Login');
+      navigation.navigate('Home');
     });
   }, []);
 
