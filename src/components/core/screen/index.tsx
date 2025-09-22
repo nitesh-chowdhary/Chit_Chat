@@ -1,10 +1,17 @@
 import { FC } from 'react';
-import { KeyboardAvoidingView, StatusBar, Platform, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  StatusBar,
+  Platform,
+  View,
+  StyleSheet,
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import type { ScreenProps } from './type';
 import ScrollView from '../scrollview';
 import { layout } from '../../../styles';
+import { useTheme } from '@/hooks';
 
 const Screen: FC<ScreenProps> = ({
   children,
@@ -19,6 +26,7 @@ const Screen: FC<ScreenProps> = ({
   ScrollViewProps,
 }) => {
   const insets = useSafeAreaInsets();
+  const theme = useTheme();
 
   const resolvedKeyboardBehavior =
     keyboardBehavior ?? (Platform.OS === 'ios' ? 'padding' : undefined);
@@ -53,7 +61,15 @@ const Screen: FC<ScreenProps> = ({
       behavior={resolvedKeyboardBehavior}
       {...KeyboardAvoidingViewProps}
     >
-      <View style={containerStyles} {...ViewProps}>
+      <View
+        style={StyleSheet.compose(
+          {
+            backgroundColor: theme.background,
+          },
+          containerStyles,
+        )}
+        {...ViewProps}
+      >
         <StatusBar
           animated
           barStyle={StatusBarProps?.barStyle ?? 'dark-content'}

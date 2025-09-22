@@ -1,73 +1,73 @@
-// Light theme palette
+// Light theme palette (WhatsApp-style)
 const light = {
-  // Primary brand colors
-  primary: '#4F46E5',
-  primaryDark: '#3730A3',
-  primaryLight: '#818CF8',
+  // Primary brand colors (WhatsApp green)
+  primary: '#25D366', // WhatsApp green
+  primaryDark: '#128C7E', // Darker green
+  primaryLight: '#ABEBC6', // Light green for highlights/buttons
 
-  // Secondary / accent
-  secondary: '#F59E0B',
-  secondaryLight: '#FCD34D',
+  // Secondary / accent (for buttons, links, or highlights)
+  secondary: '#34B7F1', // Light blue accent
+  secondaryLight: '#D0F0FD',
 
   // Neutral grayscale
-  background: '#FFFFFF',
-  card: '#F3F4F6',
-  text: '#111827',
-  border: '#D1D5DB',
+  background: '#ECE5DD', // Main app background
+  card: '#FFFFFF', // Chat bubble background (for other users)
+  text: '#111111', // Default text color
+  border: '#DDDDDD', // Divider lines
 
   white: '#FFFFFF',
   black: '#000000',
-  gray100: '#F3F4F6',
-  gray200: '#E5E7EB',
-  gray300: '#D1D5DB',
-  gray400: '#9CA3AF',
-  gray500: '#6B7280',
-  gray600: '#4B5563',
-  gray700: '#374151',
-  gray800: '#1F2937',
-  gray900: '#111827',
+  gray100: '#F5F5F5',
+  gray200: '#E0E0E0',
+  gray300: '#C0C0C0',
+  gray400: '#A0A0A0',
+  gray500: '#808080',
+  gray600: '#606060',
+  gray700: '#404040',
+  gray800: '#202020',
+  gray900: '#111111',
 
   // Feedback colors
-  success: '#10B981',
-  warning: '#F59E0B',
-  danger: '#EF4444',
-  info: '#3B82F6',
+  success: '#25D366', // Same as primary (for sent/delivered)
+  warning: '#FFC107', // maybe for notifications or errors
+  danger: '#EF4444', // failed messages
+  info: '#34B7F1', // info messages or system messages
 };
 
-// Dark theme palette
+// Dark theme palette (WhatsApp-style)
 const dark = {
   // Primary brand colors
-  primary: '#818CF8',
-  primaryDark: '#4F46E5',
-  primaryLight: '#C7D2FE',
+  primary: '#128C7E', // Dark WhatsApp green
+  primaryDark: '#075E54', // Even darker green
+  primaryLight: '#25D366', // Lighter accent
 
   // Secondary / accent
-  secondary: '#FBBF24',
-  secondaryLight: '#FDE68A',
+  secondary: '#34B7F1',
+  secondaryLight: '#D0F0FD',
 
   // Neutral grayscale
-  background: '#111827',
-  card: '#1F2937',
-  text: '#FFFFFF',
-  border: '#374151',
+  background: '#121B22', // Dark app background
+  card: '#1E2A33', // Chat bubble background
+  text: '#E1E1E1', // Light text for dark mode
+  border: '#2C3E50', // Divider lines
 
   white: '#FFFFFF',
   black: '#000000',
-  gray100: '#F3F4F6',
-  gray200: '#E5E7EB',
-  gray300: '#D1D5DB',
-  gray400: '#9CA3AF',
-  gray500: '#6B7280',
-  gray600: '#4B5563',
-  gray700: '#374151',
-  gray800: '#1F2937',
-  gray900: '#111827',
+  gray100: '#F5F5F5',
+  gray200: '#E0E0E0',
+  gray300: '#C0C0C0',
+  gray400: '#A0A0A0',
+  gray500: '#808080',
+  gray600: '#606060',
+  gray700: '#404040',
+  gray800: '#202020',
+  gray900: '#111111',
 
   // Feedback colors
-  success: '#34D399',
-  warning: '#FBBF24',
-  danger: '#F87171',
-  info: '#60A5FA',
+  success: '#25D366',
+  warning: '#FFC107',
+  danger: '#EF4444',
+  info: '#34B7F1',
 };
 
 // Namespace export

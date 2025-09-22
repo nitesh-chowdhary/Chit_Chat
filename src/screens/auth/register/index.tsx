@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import Screen from '@/components/core/screen';
-import Text from '@/components/core/text';
-import { useAppNavigation, useTheme } from '@/hooks';
-import { layout, space } from '@/styles';
-import { TextInput } from '@/components/core';
 
-const Login = () => {
+import { useAppNavigation, useTheme } from '@/hooks';
+import { Screen, Text, TextInput } from '@/components/core';
+import { layout, space } from '@/styles';
+
+const Register = () => {
   const theme = useTheme();
   const navigation = useAppNavigation();
 
+  const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    console.log('Login with:', phone, password);
+  const handleRegister = () => {
+    // TODO: Add registration logic
+    console.log('Register with:', name, phone, password);
   };
 
   return (
@@ -25,8 +26,20 @@ const Login = () => {
           variant="heading"
           style={{ color: theme.primary, marginBottom: 32 }}
         >
-          ChatWave
+          Chit Chat
         </Text>
+
+        {/* Name Input */}
+        <TextInput
+          style={[
+            styles.input,
+            { borderColor: theme.border, color: theme.text },
+          ]}
+          placeholder="Full Name"
+          placeholderTextColor={theme.gray500}
+          value={name}
+          onChangeText={setName}
+        />
 
         {/* Phone Input */}
         <TextInput
@@ -54,23 +67,23 @@ const Login = () => {
           onChangeText={setPassword}
         />
 
-        {/* Login Button */}
+        {/* Register Button */}
         <TouchableOpacity
           style={[styles.button, { backgroundColor: theme.primary }]}
-          onPress={handleLogin}
+          onPress={handleRegister}
         >
           <Text variant="body" weight="700" style={{ color: theme.white }}>
-            Login
+            Register
           </Text>
         </TouchableOpacity>
 
-        {/* Navigate to Register */}
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        {/* Navigate to Login */}
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text
             variant="caption"
             style={{ color: theme.primary, marginTop: 16 }}
           >
-            Don’t have an account? Register
+            Already have an account? Login
           </Text>
         </TouchableOpacity>
       </View>
@@ -95,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Register;
