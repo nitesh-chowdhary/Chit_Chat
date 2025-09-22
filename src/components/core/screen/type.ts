@@ -15,6 +15,9 @@ export interface ScreenProps {
   /** Whether the screen should be scrollable (default: false) */
   scrollable?: boolean;
 
+  /** Which safe area edges to respect (default: all, can include 'all') */
+  safeArea?: Array<'top' | 'bottom' | 'left' | 'right' | 'none'>;
+
   /** Additional style for the main container View (when not scrollable) */
   containerStyle?: StyleProp<ViewStyle>;
 

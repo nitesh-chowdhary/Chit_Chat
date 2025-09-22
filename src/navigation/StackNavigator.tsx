@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const StackNavigator = () => {
   // const user = useSelector((state: RootState) => state.auth.user);
   // const isAuthUser = !!user;
-  const screens = true ? appScreens : authScreens;
+  const screens = authScreens;
 
   return (
     <NavigationContainer>

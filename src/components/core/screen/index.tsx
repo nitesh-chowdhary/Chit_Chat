@@ -7,38 +7,55 @@ import ScrollView from '../scrollview';
 import { layout } from '../../../styles';
 
 const Screen: FC<ScreenProps> = ({
-  scrollable = false,
   children,
+  scrollable = false,
+  safeArea,
   safeAreaStyle,
+  containerStyle,
+  keyboardBehavior,
   KeyboardAvoidingViewProps,
   StatusBarProps,
   ViewProps,
   ScrollViewProps,
-  keyboardBehavior,
 }) => {
   const insets = useSafeAreaInsets();
 
+  // Default keyboard behavior (iOS → padding, Android → undefined)
+  const resolvedKeyboardBehavior =
+    keyboardBehavior ?? (Platform.OS === 'ios' ? 'padding' : undefined);
+
+  // Decide safe area edges
+  let appliedEdges: Array<'top' | 'bottom' | 'left' | 'right'> = [];
+
+  if (safeArea?.includes('none')) {
+    appliedEdges = [];
+  } else if (safeArea) {
+    appliedEdges = safeArea as Array<'top' | 'bottom' | 'left' | 'right'>;
+  } else {
+    appliedEdges = ['top', 'bottom', 'left', 'right'];
+  }
+
+  const safeAreaPadding = {
+    paddingTop: appliedEdges.includes('top') ? insets.top : 0,
+    paddingBottom: appliedEdges.includes('bottom') ? insets.bottom : 0,
+    paddingLeft: appliedEdges.includes('left') ? insets.left : 0,
+    paddingRight: appliedEdges.includes('right') ? insets.right : 0,
+  };
+
+  const containerStyles = [
+    layout.flex1,
+    safeAreaPadding,
+    safeAreaStyle,
+    containerStyle,
+  ];
+
   return (
     <KeyboardAvoidingView
-      style={layout.flex}
-      behavior={
-        keyboardBehavior ?? (Platform.OS === 'ios' ? 'padding' : undefined)
-      }
+      style={layout.flex1}
+      behavior={resolvedKeyboardBehavior}
       {...KeyboardAvoidingViewProps}
     >
-      <View
-        style={[
-          layout.flex,
-          {
-            paddingTop: insets.top,
-            paddingBottom: insets.bottom,
-            paddingLeft: insets.left,
-            paddingRight: insets.right,
-          },
-          safeAreaStyle,
-        ]}
-        {...ViewProps}
-      >
+      <View style={containerStyles} {...ViewProps}>
         <StatusBar
           animated
           barStyle={StatusBarProps?.barStyle ?? 'dark-content'}
@@ -49,10 +66,11 @@ const Screen: FC<ScreenProps> = ({
           }
           {...StatusBarProps}
         />
+
         {scrollable ? (
           <ScrollView {...ScrollViewProps}>{children}</ScrollView>
         ) : (
-          <>{children}</>
+          children
         )}
       </View>
     </KeyboardAvoidingView>

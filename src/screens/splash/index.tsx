@@ -1,11 +1,20 @@
 import { Screen, Text } from '@/components/core';
-import { Device } from '@/utils';
-import React from 'react';
+import { useAppNavigation } from '@/hooks';
+import { layout } from '@/styles';
+import React, { useEffect } from 'react';
 
 const Splash = () => {
+  const navigaiton = useAppNavigation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigaiton.navigate('Login');
+    }, 1000);
+  }, []);
+
   return (
-    <Screen>
-      <Text style={{ width: Device.width }}>index</Text>
+    <Screen containerStyle={layout.center}>
+      <Text variant="title">Splash Screen</Text>
     </Screen>
   );
 };
