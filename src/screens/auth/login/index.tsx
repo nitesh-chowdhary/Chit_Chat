@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import Screen from '@/components/core/screen';
-import Text from '@/components/core/text';
 import { useAppNavigation, useTheme } from '@/hooks';
 import { layout, space } from '@/styles';
-import { TextInput } from '@/components/core';
+import { Screen, Text, TextInput } from '@/components/core';
 
 const Login = () => {
   const theme = useTheme();

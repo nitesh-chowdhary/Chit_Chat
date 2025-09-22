@@ -7,3 +7,7 @@ export const HTTP_STATUS = {
   NOT_FOUND: 404,
   INTERNAL_SERVER_ERROR: 500,
 } as const;
+
+export const APP_CONSTANTS = {
+  API_TIMEOUT: '',
+};
