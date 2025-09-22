@@ -9,10 +9,11 @@ import {
   variantStyles,
 } from './styles';
 import type { ButtonProps } from './type';
+import { useTheme } from '@/hooks';
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
-  size = 'md',
+  size = 'lg',
   loading = false,
   disabled = false,
   leftIcon,
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   onPress,
 }) => {
+  const theme = useTheme();
   const isDisabled = disabled || loading;
 
   return (
@@ -28,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
       activeOpacity={0.8}
       disabled={isDisabled}
       style={[
+        { backgroundColor: theme.primary },
         styles.base,
         sizeStyles[size],
         variantStyles[variant],

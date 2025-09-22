@@ -27,11 +27,9 @@ export const styles = StyleSheet.create({
 // 🔹 Variant Styles
 export const variantStyles = StyleSheet.create({
   primary: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
+    borderWidth: 0,
   },
   secondary: {
-    backgroundColor: '#EEE',
     borderColor: '#EEE',
   },
   outline: {
