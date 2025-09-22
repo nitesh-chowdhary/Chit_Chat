@@ -8,11 +8,11 @@ import StackNavigator from './src/navigation/StackNavigator';
 const App: React.FC = () => {
   return (
     <ErrorBoundary>
-      <Provider store={store}>
-        <SafeAreaProvider>
-          <StackNavigator />
-        </SafeAreaProvider>
-      </Provider>
+      {/* <Provider store={store}> */}
+      <SafeAreaProvider>
+        <StackNavigator />
+      </SafeAreaProvider>
+      {/* </Provider> */}
     </ErrorBoundary>
   );
 };

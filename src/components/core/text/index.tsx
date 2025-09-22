@@ -27,7 +27,7 @@ const Text: React.FC<TextProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   body: {
     fontSize: 16,
     fontWeight: '400',

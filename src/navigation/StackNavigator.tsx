@@ -8,9 +8,9 @@ import type { RootState } from '@/store';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-  const user = useSelector((state: RootState) => state.auth.user);
-  const isAuthUser = !!user;
-  const screens = isAuthUser ? appScreens : authScreens;
+  // const user = useSelector((state: RootState) => state.auth.user);
+  // const isAuthUser = !!user;
+  const screens = true ? appScreens : authScreens;
 
   return (
     <NavigationContainer>
