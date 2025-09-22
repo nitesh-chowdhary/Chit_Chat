@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { DevSettings, View } from 'react-native';
 import { logger } from '../../../utils/logger';
 import Button from '../button';
 import Text from '../text';
@@ -36,6 +36,7 @@ class ErrorBoundary extends React.Component<
 
   resetError = () => {
     this.setState({ hasError: false, error: undefined });
+    DevSettings.reload();
   };
 
   render() {

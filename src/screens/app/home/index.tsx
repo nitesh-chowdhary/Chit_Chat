@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import { Screen, Text } from '@/components/core';
 import { useTheme } from '@/hooks';
+import { layout, space } from '@/styles';
 
 interface Chat {
   id: string;
@@ -72,7 +73,7 @@ const Home = () => {
         {item.isOnline && <View style={styles.onlineIndicator} />}
       </View>
 
-      <View style={styles.chatContent}>
+      <View style={layout.flex1}>
         <View style={styles.chatHeader}>
           <Text variant="title" color={theme.text} numberOfLines={1}>
             {item.name}
@@ -86,7 +87,7 @@ const Home = () => {
           <Text
             variant="body"
             color={theme.gray500}
-            style={styles.lastMessage}
+            style={StyleSheet.compose(layout.flex1, space.mr2)}
             numberOfLines={1}
           >
             {item.lastMessage}
@@ -150,7 +151,7 @@ const Home = () => {
         data={mockChats}
         renderItem={renderChatItem}
         keyExtractor={item => item.id}
-        style={[styles.chatList, { backgroundColor: theme.background }]}
+        style={[layout.flex1, { backgroundColor: theme.background }]}
         showsVerticalScrollIndicator={false}
       />
 
@@ -168,9 +169,7 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    ...layout.rowBetween,
     paddingHorizontal: 16,
     paddingVertical: 12,
     elevation: 4,
@@ -209,11 +208,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
   },
-
-  chatList: {
-    flex: 1,
-  },
-
   chatItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -221,20 +215,16 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 0.5,
   },
-
   avatarContainer: {
     position: 'relative',
     marginRight: 12,
   },
-
   avatar: {
     width: 50,
     height: 50,
     borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...layout.center,
   },
-
   onlineIndicator: {
     position: 'absolute',
     bottom: 2,
@@ -246,47 +236,29 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#FFF',
   },
-
-  chatContent: {
-    flex: 1,
-  },
-
   chatHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    ...layout.rowBetween,
     marginBottom: 4,
   },
-
   messageRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-
-  lastMessage: {
-    flex: 1,
-    marginRight: 8,
+    ...layout.rowBetween,
   },
 
   unreadBadge: {
     minWidth: 20,
     height: 20,
     borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...layout.center,
     paddingHorizontal: 6,
   },
-
   fab: {
-    position: 'absolute',
+    ...layout.absolute,
+    ...layout.center,
     bottom: 20,
     right: 20,
     width: 56,
     height: 56,
     borderRadius: 28,
-    justifyContent: 'center',
-    alignItems: 'center',
     elevation: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
