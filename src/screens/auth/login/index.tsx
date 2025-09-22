@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { loginRequest, logoutRequest } from '@/store/slices/authSlice';
 import { Screen, Text } from '@/components/core';
+import { layout } from '@/styles';
 
 const Login = () => {
   return (
     <Screen>
-      <Text>index</Text>
+      <Text>Login</Text>
     </Screen>
   );
 };

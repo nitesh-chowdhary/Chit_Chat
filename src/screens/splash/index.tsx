@@ -1,7 +1,8 @@
+import React, { useEffect } from 'react';
+
 import { Screen, Text } from '@/components/core';
 import { useAppNavigation } from '@/hooks';
 import { layout } from '@/styles';
-import React, { useEffect } from 'react';
 
 const Splash = () => {
   const navigaiton = useAppNavigation();
@@ -14,7 +15,7 @@ const Splash = () => {
 
   return (
     <Screen containerStyle={layout.center}>
-      <Text variant="title">Splash Screen</Text>
+      <Text variant="title">App by : Nitesh</Text>
     </Screen>
   );
 };

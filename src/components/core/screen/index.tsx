@@ -20,14 +20,12 @@ const Screen: FC<ScreenProps> = ({
 }) => {
   const insets = useSafeAreaInsets();
 
-  // Default keyboard behavior (iOS → padding, Android → undefined)
   const resolvedKeyboardBehavior =
     keyboardBehavior ?? (Platform.OS === 'ios' ? 'padding' : undefined);
 
-  // Decide safe area edges
   let appliedEdges: Array<'top' | 'bottom' | 'left' | 'right'> = [];
 
-  if (safeArea?.includes('none')) {
+  if (safeArea?.length === 0) {
     appliedEdges = [];
   } else if (safeArea) {
     appliedEdges = safeArea as Array<'top' | 'bottom' | 'left' | 'right'>;
