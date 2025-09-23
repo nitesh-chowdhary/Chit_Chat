@@ -40,6 +40,17 @@ export const variantStyles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderColor: 'transparent',
   },
+  fab: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    borderWidth: 0,
+  },
 });
 
 // 🔹 Button Sizes
@@ -61,11 +72,4 @@ export const textSizeStyles = StyleSheet.create({
   sm: { fontSize: 12 },
   md: { fontSize: 16 },
   lg: { fontSize: 20 },
-});
-
-export const textVariantStyles = StyleSheet.create({
-  primary: { color: '#FFF' },
-  secondary: { color: '#111' },
-  outline: { color: '#007AFF' },
-  ghost: { color: '#111' },
 });

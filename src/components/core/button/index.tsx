@@ -5,7 +5,6 @@ import {
   styles,
   textSizeStyles,
   textStyles,
-  textVariantStyles,
   variantStyles,
 } from './styles';
 import type { ButtonProps } from './type';
@@ -20,6 +19,8 @@ const Button: React.FC<ButtonProps> = ({
   rightIcon,
   children,
   onPress,
+  style,
+  ...rest
 }) => {
   const theme = useTheme();
   const isDisabled = disabled || loading;
@@ -35,7 +36,9 @@ const Button: React.FC<ButtonProps> = ({
         sizeStyles[size],
         variantStyles[variant],
         isDisabled && styles.disabled,
+        style,
       ]}
+      {...rest}
     >
       {loading ? (
         <ActivityIndicator
@@ -46,16 +49,20 @@ const Button: React.FC<ButtonProps> = ({
       ) : (
         <View style={styles.row}>
           {leftIcon && <View style={styles.icon}>{leftIcon}</View>}
-          <Text
-            style={[
-              textStyles.base,
-              textSizeStyles[size],
-              textVariantStyles[variant],
-              isDisabled && styles.textDisabled,
-            ]}
-          >
-            {children}
-          </Text>
+          {typeof children === 'string' ? (
+            <Text
+              style={[
+                textStyles.base,
+                textSizeStyles[size],
+                { color: theme?.text },
+                isDisabled && styles.textDisabled,
+              ]}
+            >
+              {children}
+            </Text>
+          ) : (
+            <>{children}</>
+          )}
           {rightIcon && <View style={styles.icon}>{rightIcon}</View>}
         </View>
       )}

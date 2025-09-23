@@ -1,6 +1,7 @@
 import { GestureResponderEvent, TouchableOpacityProps } from 'react-native';
+import { styles, variantStyles } from './styles';
 
-export type Variant = 'primary' | 'secondary' | 'outline' | 'ghost';
+export type Variant = keyof typeof variantStyles;
 export type Size = 'sm' | 'md' | 'lg';
 
 export interface ButtonProps extends TouchableOpacityProps {

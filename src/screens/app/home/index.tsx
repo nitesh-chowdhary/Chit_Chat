@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-import { Screen, Text } from '@/components/core';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, Flatlist, Screen, Text } from '@/components/core';
 import { useTheme } from '@/hooks';
 import { layout, space } from '@/styles';
 
@@ -93,15 +93,15 @@ const Home = () => {
             {item.lastMessage}
           </Text>
 
-          {item.unreadCount && item.unreadCount > 0 && (
+          {item.unreadCount ? (
             <View
               style={[styles.unreadBadge, { backgroundColor: theme.primary }]}
             >
               <Text variant="caption" color={theme.white}>
-                {item.unreadCount > 99 ? '99+' : item.unreadCount.toString()}
+                {item?.unreadCount > 99 ? '99+' : item.unreadCount}
               </Text>
             </View>
-          )}
+          ) : null}
         </View>
       </View>
     </TouchableOpacity>
@@ -113,41 +113,9 @@ const Home = () => {
         <Text variant="heading" color={theme.background}>
           ChitChat
         </Text>
-
-        <View style={styles.headerActions}>
-          <TouchableOpacity style={styles.headerButton}>
-            <Text variant="title" color={theme.background}>
-              ⚙️
-            </Text>
-          </TouchableOpacity>
-        </View>
       </View>
 
-      <View style={styles.tabsContainer}>
-        <TouchableOpacity
-          style={[
-            styles.tab,
-            styles.activeTab,
-            { backgroundColor: theme.primary },
-          ]}
-        >
-          <Text variant="body" color={theme.background}>
-            Chats
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tab}>
-          <Text variant="body" color={theme.gray500}>
-            Status
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tab}>
-          <Text variant="body" color={theme.gray500}>
-            Calls
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      <FlatList
+      <Flatlist
         data={mockChats}
         renderItem={renderChatItem}
         keyExtractor={item => item.id}
@@ -155,14 +123,13 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
       />
 
-      <TouchableOpacity
+      <Button
         style={[styles.fab, { backgroundColor: theme.primary }]}
+        variant="fab"
         activeOpacity={0.8}
       >
-        <Text variant="heading" color={theme.background}>
-          +
-        </Text>
-      </TouchableOpacity>
+        +
+      </Button>
     </Screen>
   );
 };
@@ -256,14 +223,6 @@ const styles = StyleSheet.create({
     ...layout.center,
     bottom: 20,
     right: 20,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    elevation: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
   },
 });
 

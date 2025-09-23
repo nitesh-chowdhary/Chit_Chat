@@ -35,7 +35,7 @@ const SplashScreen = () => {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      navigation.navigate('Home');
+      navigation.navigate('BottomTab');
     });
   }, []);
 
