@@ -3,6 +3,7 @@ import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Flatlist, Screen, Text } from '@/components/core';
 import { useTheme } from '@/hooks';
 import { layout, space } from '@/styles';
+import { Header } from '@/components/app';
 
 interface Chat {
   id: string;
@@ -109,11 +110,7 @@ const Home = () => {
 
   return (
     <Screen>
-      <View style={[styles.header, { backgroundColor: theme.primary }]}>
-        <Text variant="heading" color={theme.background}>
-          ChitChat
-        </Text>
-      </View>
+      <Header title="Chit Chat" />
 
       <Flatlist
         data={mockChats}

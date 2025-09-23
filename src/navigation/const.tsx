@@ -10,6 +10,7 @@ import Status from '@/screens/app/status';
 import { MyTabs } from './BottomTabNavigator';
 
 import type { ScreenTypes } from '@/types';
+import Calls from '@/screens/app/calls';
 
 export enum ScreenName {
   Splash = 'Splash',
@@ -21,6 +22,7 @@ export enum ScreenName {
   // app screens
   Home = 'Home',
   Status = 'Status',
+  Calls = 'Calls',
   BottomTab = 'BottomTab',
 }
 
@@ -57,5 +59,9 @@ export const bottomTabScreens = [
   {
     name: ScreenName.Status,
     component: Status,
+  },
+  {
+    name: ScreenName.Calls,
+    component: Calls,
   },
 ];
